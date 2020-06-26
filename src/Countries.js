@@ -5,7 +5,7 @@ import React from 'react';
 
 const Countries = ({allData}) => {
     return(
-        allData.map(eachCountry => {
+        allData.map((eachCountry) => {
         return(
             <div>
                 <img src={eachCountry.flag}

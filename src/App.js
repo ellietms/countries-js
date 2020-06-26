@@ -7,15 +7,13 @@ import Countries from './Countries';
 
 function App() {
   const [inputvalue,setInputValue]=useState("");
-  const[countryRegion,setCountryRegion]=useState()
+  const[countryRegion,setCountryRegion]=useState(null)
 
-  function showSpecificRegion(countryRegion){
-    Data.filter(country => country.region === countryRegion ? true : false)
-  }
 
-  // .filter(eachCountry => eachCountry.region === countryRegion ? true : false)
-  
   const filteredCountries = Data.filter((eachCountry) => 
+   eachCountry.region === countryRegion || 
+    countryRegion === null)
+  .filter((eachCountry) => 
     inputvalue === "" ? true :
     eachCountry.name.toLowerCase().includes(inputvalue) || 
     eachCountry.capital.toLowerCase().includes(inputvalue)
@@ -26,8 +24,8 @@ function App() {
   <div>
     <Search
      inputValueOfSearch={(event) =>setInputValue(event.target.value)}/>
-    {/* <DropDown
-    showSpecificRegion={showSpecificRegion}/> */}
+    <DropDown
+    showSpecificRegion={(region) => setCountryRegion(region)}/>
      <Countries
       allData={filteredCountries}/>
   </div>

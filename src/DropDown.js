@@ -4,34 +4,34 @@ import React from 'react';
 const DropDown = ({showSpecificRegion}) => {
     return(
     <div>
-    <select name="continent" id="continent">
-    <option value="All Region">Filtered by Region</option> 
-    <option 
+    <div name="continent" id="continent">
+    <button 
     value="All Region"
-    onClick={() => showSpecificRegion("")}>
+    onClick={() => showSpecificRegion(null)}>
         All Region
-    </option>
-    <option value="Africa"
+    </button>
+    <button
+     value="Africa"
     onClick={() => showSpecificRegion("Africa")}>
         Africa
-    </option>
-    <option value="America"
+    </button>
+    <button value="America"
     onClick={() => showSpecificRegion("Americas")}>
         America
-    </option>
-    <option value="Asia"
+    </button>
+    <button value="Asia"
     onClick={() => showSpecificRegion("Asia")}>
         Asia
-    </option>
-    <option value="Europe"
+    </button>
+    <button value="Europe"
     onClick={() => showSpecificRegion("Europe")}>
         Europe
-    </option>
-    <option value="Oceania"
+    </button>
+    <button value="Oceania"
     onClick={() => showSpecificRegion("Oceania")}>
         Oceania
-    </option>
-    </select>
+    </button>
+    </div>
     </div>
     )
 }

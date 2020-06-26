@@ -4,11 +4,13 @@ import Data from './data.json';
 import Search from './Search';
 import DropDown from './DropDown';
 import Countries from './Countries';
+import CountryInfo from './CountryInfo';
 
 function App() {
-  const [inputvalue,setInputValue]=useState("");
-  const[countryRegion,setCountryRegion]=useState(null)
-
+  const[inputvalue,setInputValue]=useState("");
+  const[countryRegion,setCountryRegion]=useState(null);
+  const[selectedCountry,setSelectedCountry]=useState(null);
+  
 
   const filteredCountries = Data.filter((eachCountry) => 
    eachCountry.region === countryRegion || 
@@ -20,6 +22,7 @@ function App() {
   )
 
   let mainContent;
+  if(selectedCountry === null){
   mainContent=(
   <div>
     <Search
@@ -27,9 +30,16 @@ function App() {
     <DropDown
     showSpecificRegion={(region) => setCountryRegion(region)}/>
      <Countries
-      allData={filteredCountries}/>
+      allData={filteredCountries}
+      selectedCountry={(eachCountry) => setSelectedCountry(eachCountry)}/>
   </div>
-  )
+  )}
+  else{
+    mainContent=(
+    <CountryInfo 
+    selectedCountryInfo ={selectedCountry}/>
+    )
+  }
 
   return (
      <div>

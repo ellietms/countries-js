@@ -6,7 +6,7 @@ import DropDown from './DropDown';
 import Countries from './Countries';
 
 function App() {
-  const [value,setValue]=useState("")
+  const [value,setValue]=useState("");
 
 
   function inputValue(event){
@@ -24,7 +24,8 @@ function App() {
        setValue={inputValue}/>
       <DropDown
       showSpecificRegion={showSpecificRegion}/>
-      <Countries/>
+        <Countries
+         allData={Data}/>
     </div>
   );
 }

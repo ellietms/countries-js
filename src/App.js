@@ -20,7 +20,7 @@ function App() {
     eachCountry.name.toLowerCase().includes(inputvalue) || 
     eachCountry.capital.toLowerCase().includes(inputvalue)
   )
-
+  let BordersOFselectedCountry;
   let mainContent;
   if(selectedCountry === null){
   mainContent=(
@@ -35,10 +35,16 @@ function App() {
   </div>
   )}
   else{
+    BordersOFselectedCountry = Data.filter((country) =>  
+    selectedCountry.borders.includes(country.alpha3Code))
+    console.log(BordersOFselectedCountry)
+   
     mainContent=(
     <CountryInfo 
-    selectedCountryInfo ={selectedCountry}/>
+    selectedCountryInfo ={selectedCountry}
+    BordersOFselectedCountry={BordersOFselectedCountry}/>
     )
+
   }
 
   return (

@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const CountryInfo = ({selectedCountryInfo}) => {
+const CountryInfo = ({selectedCountryInfo,BordersOFselectedCountry}) => {
  return(
      <div>
         <img src={selectedCountryInfo.flag}
@@ -21,9 +21,16 @@ const CountryInfo = ({selectedCountryInfo}) => {
         </div>
         <div>
             Borders:
-            <div>
-                
+           { BordersOFselectedCountry.map(eachBorder => {
+            return( 
+            <div>  
+            <button >
+                {eachBorder.name}
+            </button>
             </div>
+            )
+            })}
+           
         </div>
      </div>
  )

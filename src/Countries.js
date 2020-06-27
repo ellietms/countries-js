@@ -3,7 +3,7 @@ import React from 'react';
 
 
 
-const Countries = ({allData,selectedCountry}) => {
+const Countries = ({allData,selectedCountryData}) => {
     return(
         allData.map((eachCountry) => {
         return(
@@ -11,7 +11,7 @@ const Countries = ({allData,selectedCountry}) => {
                 <img src={eachCountry.flag}
                 alt="flag"
                 style={{width:"100px"}}
-                onClick={() => selectedCountry(eachCountry)}/>
+                onClick={() => selectedCountryData(eachCountry)}/>
                 {eachCountry.name},
                 {eachCountry.population.toString().replace(/(.)(?=(\d{3})+$)/g, "$1,")},
                 {eachCountry.region},

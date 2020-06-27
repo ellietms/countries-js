@@ -2,30 +2,35 @@ import React from 'react';
 
 
 
-const CountryInfo = ({selectedCountryInfo,BordersOFselectedCountry}) => {
+const CountryInfo = ({selectedCountryData,BordersOFSelectedCountryData,selectedBorder,backToMAinPage}) => {
  return(
      <div>
-        <img src={selectedCountryInfo.flag}
+         <div>
+             <button onClick={() => backToMAinPage()}>
+                 backToMAinPage
+             </button>    
+         </div>
+        <img src={selectedCountryData.flag}
         alt="countryFlag"
          style={{width:"100px"}}/> 
          <div>
-        {selectedCountryInfo.name},
-        {selectedCountryInfo.nativeName},
-        {selectedCountryInfo.population},
-        {selectedCountryInfo.region},
-        {selectedCountryInfo.subregion},
-        {selectedCountryInfo.capital},
-        {selectedCountryInfo.topLevelDomain[0]},
-        {selectedCountryInfo.currencies.map((currency) => currency.code)},
-        {selectedCountryInfo.languages.map((language) => language.name)},
+        {selectedCountryData.name},
+        {selectedCountryData.nativeName},
+        {selectedCountryData.population},
+        {selectedCountryData.region},
+        {selectedCountryData.subregion},
+        {selectedCountryData.capital},
+        {selectedCountryData.topLevelDomain[0]},
+        {selectedCountryData.currencies.map((currency) => currency.code)},
+        {selectedCountryData.languages.map((language) => language.name)},
         </div>
         <div>
             Borders:
-           { BordersOFselectedCountry.map(eachBorder => {
+           { BordersOFSelectedCountryData.map(country => {
             return( 
             <div>  
-            <button >
-                {eachBorder.name}
+            <button onClick={() => selectedBorder(country)}>
+                {country.name}
             </button>
             </div>
             )

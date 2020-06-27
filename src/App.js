@@ -7,22 +7,24 @@ import Countries from './Countries';
 import CountryInfo from './CountryInfo';
 
 function App() {
-  const[inputvalue,setInputValue]=useState("");
+
+  const[inputValue,setInputValue]=useState("");
   const[countryRegion,setCountryRegion]=useState(null);
-  const[selectedCountry,setSelectedCountry]=useState(null);
+  const[selectedCountryData,setSelectedCountryData]=useState(null);
   
 
   const filteredCountries = Data.filter((eachCountry) => 
    eachCountry.region === countryRegion || 
     countryRegion === null)
   .filter((eachCountry) => 
-    inputvalue === "" ? true :
-    eachCountry.name.toLowerCase().includes(inputvalue) || 
-    eachCountry.capital.toLowerCase().includes(inputvalue)
+    inputValue === "" ? true :
+    eachCountry.name.toLowerCase().includes(inputValue) || 
+    eachCountry.capital.toLowerCase().includes(inputValue)
   )
-  let BordersOFselectedCountry;
-  let mainContent;
-  if(selectedCountry === null){
+
+  let BordersOFSelectedCountryData,mainContent;
+
+  if(selectedCountryData === null){
   mainContent=(
   <div>
     <Search
@@ -31,20 +33,23 @@ function App() {
     showSpecificRegion={(region) => setCountryRegion(region)}/>
      <Countries
       allData={filteredCountries}
-      selectedCountry={(eachCountry) => setSelectedCountry(eachCountry)}/>
+      selectedCountryData={(eachCountry) => setSelectedCountryData(eachCountry)}/>
   </div>
   )}
+
   else{
-    BordersOFselectedCountry = Data.filter((country) =>  
-    selectedCountry.borders.includes(country.alpha3Code))
-    console.log(BordersOFselectedCountry)
+
+    BordersOFSelectedCountryData = Data.filter((country) =>  
+    selectedCountryData.borders.includes(country.alpha3Code))
+    console.log(BordersOFSelectedCountryData)
    
     mainContent=(
     <CountryInfo 
-    selectedCountryInfo ={selectedCountry}
-    BordersOFselectedCountry={BordersOFselectedCountry}/>
+    selectedCountryData ={selectedCountryData}
+    BordersOFSelectedCountryData={BordersOFSelectedCountryData}
+    selectedBorder ={(eachCountry) => setSelectedCountryData(eachCountry)}
+    backToMAinPage={(eachCountry) => setSelectedCountryData(null)}/>
     )
-
   }
 
   return (

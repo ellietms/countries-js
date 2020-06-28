@@ -1,6 +1,9 @@
 import React from 'react';
 
 
+// This is a really repetative component. Can you make it so that:
+// 1. You don't need to do the same thing 6 times
+// 2. You don't need to write down the names of the regions, which are already present in the data
 const DropDown = ({showSpecificRegion}) => {
     return(
     <div>

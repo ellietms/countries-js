@@ -11,7 +11,7 @@ const CountryInfo = ({selectedCountryData,BordersOFSelectedCountryData,selectedB
              </button>    
          </div>
         <img src={selectedCountryData.flag}
-        alt="countryFlag"
+        alt="countryFlag" { /* Alt text should be words, phrases, or sentences. countryFlag isn't somethin screen readers will necessarily know how to read - can you think of a more descriptive one? */}
          style={{width:"100px"}}/> 
          <div>
         {selectedCountryData.name},

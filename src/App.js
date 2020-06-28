@@ -8,37 +8,38 @@ import CountryInfo from './CountryInfo';
 
 function App() {
 
-  const[inputValue,setInputValue]=useState("");
+  const[searchValue,setSearchValue]=useState("");
   const[countryRegion,setCountryRegion]=useState(null);
   const[selectedCountryData,setSelectedCountryData]=useState(null);
   
 
-  const filteredCountries = Data.filter((eachCountry) => 
-   eachCountry.region === countryRegion || 
-    countryRegion === null)
-  .filter((eachCountry) => 
-    inputValue === "" ? true :
-    eachCountry.name.toLowerCase().includes(inputValue) || 
-    eachCountry.capital.toLowerCase().includes(inputValue)
+  const filteredCountries = Data.filter((country) => 
+   country.region === countryRegion || 
+   countryRegion === null)
+  .filter((country) => 
+    searchValue === "" ||
+    country.name.toLowerCase().includes(searchValue) || 
+    country.capital.toLowerCase().includes(searchValue)
   )
 
-  let BordersOFSelectedCountryData,mainContent;
+  let mainContent;
 
   if(selectedCountryData === null){
   mainContent=(
   <div>
     <Search
-     inputValueOfSearch={(event) =>setInputValue(event.target.value)}/>
+     searchValueOfSearch={(event) =>setSearchValue(event.target.value)}/>
     <DropDown
     showSpecificRegion={(region) => setCountryRegion(region)}/>
      <Countries
       allData={filteredCountries}
-      selectedCountryData={(eachCountry) => setSelectedCountryData(eachCountry)}/>
+      selectedCountryData={(country) => setSelectedCountryData(country)}/>
   </div>
-  )}
+  )
+}
 
   else{
-
+    let BordersOFSelectedCountryData;
     BordersOFSelectedCountryData = Data.filter((country) =>  
     selectedCountryData.borders.includes(country.alpha3Code))
     console.log(BordersOFSelectedCountryData)

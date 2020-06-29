@@ -26,7 +26,8 @@ function App() {
     mainContent = (
       <div>
         <Search
-          searchValueOfSearch={(string) => setSearchValue(string)}
+          value={searchValue}
+          handleSearchValue={(event) => setSearchValue(event.target.value)}
         />
         <DropDown showSpecificRegion={(region) => setCountryRegion(region)} />
         <Countries

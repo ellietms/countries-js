@@ -49,7 +49,7 @@ function App() {
     selectedCountryData ={selectedCountryData}
     BordersOFSelectedCountryData={BordersOFSelectedCountryData}
     selectedBorder ={(eachCountry) => setSelectedCountryData(eachCountry)}
-    backToMAinPage={(eachCountry) => setSelectedCountryData(null)}/>
+    backToMAinPage={setSelectedCountryData}/>
     )
   }
 

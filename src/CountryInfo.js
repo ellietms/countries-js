@@ -11,9 +11,9 @@ const CountryInfo = ({selectedCountryData,BordersOFSelectedCountryData,selectedB
              </button>    
          </div>
         <img src={selectedCountryData.flag}
-        alt="countryFlag"
+         alt="countryFlag"
          style={{width:"100px"}}/> 
-         <div>
+        <div>
         {selectedCountryData.name},
         {selectedCountryData.nativeName},
         {selectedCountryData.population},

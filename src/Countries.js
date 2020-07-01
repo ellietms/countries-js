@@ -8,7 +8,8 @@ const Countries = ({ allData, selectedCountryData }) => {
           src={eachCountry.flag}
           alt="flag"
           style={{ width: "100px" }}
-          onClick={() => selectedCountryData(eachCountry)}
+          onClick={(event) => {
+            selectedCountryData(eachCountry)}}
         />
         {eachCountry.name},
         {eachCountry.population.toString().replace(/(.)(?=(\d{3})+$)/g, "$1,")},

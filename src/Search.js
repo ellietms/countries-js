@@ -6,7 +6,9 @@ return(
     <div>
     <input type="text" placeholder="Search.."
     value={value}
-    onChange={(event) => handleSearchValue(event)}/>
+    // Here
+    onChange={(event) => handleSearchValue(event.target.value)}/>
+    {/* Here */}
     </div>
 )
 } 

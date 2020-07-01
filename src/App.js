@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./App.css";
 import Data from "./data.json";
 import Search from "./Search";
 import DropDown from "./DropDown";
@@ -27,12 +26,16 @@ function App() {
       <div>
         <Search
           value={searchValue}
-          handleSearchValue={(event) => setSearchValue(event.target.value)}
+          // Here
+          handleSearchValue={(newSearchValue) => setSearchValue(newSearchValue)}
+          // Here
         />
         <DropDown showSpecificRegion={(region) => setCountryRegion(region)} />
         <Countries
           allData={filteredCountries}
-          selectedCountryData={(country) => setSelectedCountryData(country)}
+          // Here
+          selectedCountryData={function(country) { setSelectedCountryData(country) }} 
+          // Here
         />
       </div>
     );

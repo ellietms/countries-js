@@ -6,9 +6,9 @@ import Countries from "./Countries";
 import CountryInfo from "./CountryInfo";
 
 function App() {
-  const [searchValue, setSearchValue] = useState("");
-  const [countryRegion, setCountryRegion] = useState("");
-  const [selectedCountryData, setSelectedCountryData] = useState(null);
+  const [searchValue,setSearchValue] = useState("");
+  const [countryRegion,setCountryRegion] = useState("");
+  const [selectCountryData,setSelectCountryData] = useState(null);
   const filteredCountries = Data.filter(
     (country) => country.region === countryRegion || countryRegion === "")
     .filter(
@@ -20,7 +20,7 @@ function App() {
 
   let mainContent;
 
-  if (selectedCountryData === null) {
+  if (selectCountryData === null) {
     mainContent = (
       <div>
         <Search
@@ -33,23 +33,23 @@ function App() {
         <Countries
           allData={filteredCountries}
           // Here
-          selectedCountryData={function(country){ setSelectedCountryData(country) }} 
+          selectCountryData={function(country){ setSelectCountryData(country) }} 
           // Here
         />
       </div>
     );
   } else {
-    let BordersOFSelectedCountryData;
-    BordersOFSelectedCountryData = Data.filter((country) =>
-      selectedCountryData.borders.includes(country.alpha3Code)
+    let BordersOfSelectCountryData;
+    BordersOfSelectCountryData = Data.filter((country) =>
+      selectCountryData.borders.includes(country.alpha3Code)
     );
 
     mainContent = (
       <CountryInfo
-        selectedCountryData={selectedCountryData}
-        BordersOFSelectedCountryData={BordersOFSelectedCountryData}
-        selectedBorder={(eachCountry) => setSelectedCountryData(eachCountry)}
-        backToMAinPage={() => setSelectedCountryData(null)}
+        selectCountryData={selectCountryData}
+        BordersOfSelectCountryData={BordersOfSelectCountryData}
+        selectBorder={(eachCountry) => setSelectCountryData(eachCountry)}
+        backToMAinPage={() => setSelectCountryData(null)}
       />
     );
   }

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Countries = ({ allData, selectedCountryData }) => {
+const Countries = ({ allData, selectCountryData }) => {
   return allData.map((eachCountry) => {
     return (
       <div>
@@ -9,7 +9,7 @@ const Countries = ({ allData, selectedCountryData }) => {
           alt="flag"
           style={{ width: "100px" }}
           onClick={(event) => {
-            selectedCountryData(eachCountry)}}
+            selectCountryData(eachCountry)}}
         />
         {eachCountry.name},
         {eachCountry.population.toString().replace(/(.)(?=(\d{3})+$)/g, "$1,")},

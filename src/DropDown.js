@@ -4,7 +4,6 @@ const DropDown = ({showSpecificRegion}) => {
   return (
     <div name="continent" id="continent">
       <select onChange={(event) => showSpecificRegion(event.target.value)}>
-        {/* fix this  value for all region */}
         <option value=""> All Region</option>
         <option value="Africa">Africa</option>
         <option value="Americas">America</option>

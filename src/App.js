@@ -9,14 +9,13 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
   const [countryRegion, setCountryRegion] = useState("");
   const [selectedCountryData, setSelectedCountryData] = useState(null);
-  console.log(countryRegion);
   const filteredCountries = Data.filter(
     (country) => country.region === countryRegion || countryRegion === "")
     .filter(
     (country) =>
       searchValue === "" ||
-      country.name.toLowerCase().includes(searchValue) ||
-      country.capital.toLowerCase().includes(searchValue)
+      country.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+      country.capital.toLowerCase().includes(searchValue.toLowerCase())
   );
 
   let mainContent;

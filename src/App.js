@@ -7,12 +7,12 @@ import CountryInfo from "./CountryInfo";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
-  const [countryRegion, setCountryRegion] = useState(null);
+  const [countryRegion, setCountryRegion] = useState("");
   const [selectedCountryData, setSelectedCountryData] = useState(null);
-
+  console.log(countryRegion);
   const filteredCountries = Data.filter(
-    (country) => country.region === countryRegion || countryRegion === null
-  ).filter(
+    (country) => country.region === countryRegion || countryRegion === "")
+    .filter(
     (country) =>
       searchValue === "" ||
       country.name.toLowerCase().includes(searchValue) ||
@@ -34,7 +34,7 @@ function App() {
         <Countries
           allData={filteredCountries}
           // Here
-          selectedCountryData={function(country) { setSelectedCountryData(country) }} 
+          selectedCountryData={function(country){ setSelectedCountryData(country) }} 
           // Here
         />
       </div>

@@ -1,43 +1,19 @@
-import React, { useState } from 'react';
-
+import React from "react";
 
 const DropDown = ({showSpecificRegion}) => {
-
-    const [region,setRegion]=useState(null)
-    return(
+  return (
     <div name="continent" id="continent">
-    <select onClick={() => showSpecificRegion(region)}>  
-    <option 
-    value="All Region"
-    onClick={() => setRegion(null)}>
-        All Region
-    </option>
-    <option
-     value="Africa"
-    onClick={() => setRegion("Africa")}>
-        Africa
-    </option>
-    <option value="America"
-    onClick={() => setRegion("Americas")}>
-        America
-    </option>
-    <option value="Asia"
-    onClick={() => setRegion("Asia")}>
-        Asia
-    </option>
-    <option value="Europe"
-    onClick={() => setRegion("Europe")}>
-        Europe
-    </option>
-    <option value="Oceania"
-    onClick={() => setRegion("Oceania")}>
-        Oceania
-    </option>
-    </select>
+      <select onChange={(event) => showSpecificRegion(event.target.value)}>
+        {/* fix this  value for all region */}
+        <option value=""> All Region</option>
+        <option value="Africa">Africa</option>
+        <option value="Americas">America</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Oceania">Oceania</option>
+      </select>
     </div>
-    )
-}
-
-
+  );
+};
 
 export default DropDown;

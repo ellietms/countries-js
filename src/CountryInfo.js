@@ -1,9 +1,9 @@
 import React from "react";
 
 const CountryInfo = ({
-  selectedCountryData,
-  BordersOFSelectedCountryData,
-  selectedBorder,
+  selectedCountryData, // Rename to not be past tense
+  BordersOFSelectedCountryData, // Make sure you're using capitalisation correctly in all variable names :)
+  selectedBorder,  // Rename to not be past tense
   backToMAinPage,
 }) => {
   return (
